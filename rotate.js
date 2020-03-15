@@ -1,9 +1,22 @@
 function spinSide90Right(matrix, index, N){
-  if(N<=2){
+  if(N<2){
     return matrix;
   }
   //rotate corner values
-  if(N >= 2){
+  if(N==2){
+        var tempCornerTopLeft = matrix[index][index];
+    var tempCornerTopRight = matrix[index][N-1];
+    var tempCornerBotLeft = matrix[N-1][index];
+    var tempCornerBotRight = matrix[N-1][N-1];
+    console.log(tempCornerTopLeft,tempCornerTopRight, tempCornerBotLeft,tempCornerBotRight)
+    //rotate corner vals
+    matrix[index][index] = tempCornerBotLeft;
+    matrix[index][N-1] = tempCornerTopLeft;
+    matrix[N-1][index] = tempCornerBotRight;
+    matrix[N-1][N-1] = tempCornerTopRight;
+    return matrix;
+  }
+  if(N > 2){
     var tempCornerTopLeft = matrix[index][index];
     var tempCornerTopRight = matrix[index][N-1];
     var tempCornerBotLeft = matrix[N-1][index];
